@@ -27,6 +27,34 @@
 
 const sections = document.querySelectorAll("section");
 
+
+//creating a dynamiclly navbar
+function createNavMenu() {
+  const navbar = document.getElementById("navbar__list");
+  // creating a h4 element within a div inside the navbar
+  const div1 = document.createElement("div")
+  div1.classList.add("div1")
+  div1.innerHTML = `<h4 class ="h4">The Nav</h4>`;
+  navbar.appendChild(div1);
+
+
+  // creating a div for the links 
+  const div2 = document.createElement("div");
+  div2.classList.add("div2");
+  navbar.appendChild(div2);
+
+  // craeting a link for each existing section element
+  sections.forEach((section) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="#${section.id}" class='navbar__item'>${section.id}</a>`;
+    div2.appendChild(li);
+  });
+}
+
+
+
+
+
 // scroll to the section being selected
 function myFunction() {
       
@@ -54,9 +82,9 @@ function addAcitveClass() {
 
 
 function Do() {
-  
-
+  createNavMenu();
   addAcitveClass();
+
 }
 
 Do();
